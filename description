@@ -1,0 +1,13 @@
+NST defines the following inputs:
+•	A generated image — the image that contains the final output which is the only trainable variable 
+•	A style image — the image from which we want to transfer the style that is to be incorporated in the content image
+•	A content image  — the image on which we want to perform the style transfer 
+How does neural artistic style transfer work?
+1.	We take an input image and a style image and then resize them to equal dimensions.
+2.	Then we load a pre-trained Convolutional Neural Network (CNN) such as VGG19.
+3.	We can distinguish layers of the CNN that are the responsible for the content (image-specific features) and layers which are responsible for style (basic shapes, colours etc.), we can separate the different layers of the CNN to independently work on the style and content.
+4.	Next we have to work on the optimization problem using which we try to minimize:
+•	Content loss (distance between the output and input images - we strive to preserve the content)
+•	Style loss (distance between the output and style images - we strive to apply a new style)
+•	Total variation loss (regularisation - spatial smoothness to de-noise the output image) 
+5.	Set the gradients and perform optimization. 
